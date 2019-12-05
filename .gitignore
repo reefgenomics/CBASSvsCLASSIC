@@ -24,3 +24,4 @@ ITS2_analyses/input/between_sample_distances/
 ITS2_analyses/input/meta_info.xlsx
 ITS2_analyses/sample_id_list_classic
 ITS2_analyses/sample_order_for_carol.txt
+.idea/*
