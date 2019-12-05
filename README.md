@@ -1,4 +1,4 @@
-#CBASSvsCLASSIC
+# CBASSvsCLASSIC
 This repository contains the scripts used to run analyses and create figures for the manuscript that is currently 
 under development.
 
