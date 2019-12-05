@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.6
+
 """ This script will be for the processing of any data for the 'phase 0'
 publication of what I believe is the cbass_classic data set.
 """
@@ -172,10 +174,12 @@ class SampleOrdinationFigure:
 
         self._seq_and_type_plotting_site_ordered()
         plt.tight_layout()
-        print('saving .png')
-        plt.savefig(os.path.join(self.fig_out_path, 'classic_sample_profile_dists_and_seq_info.png'), dpi=1200)
-        print('saving .svg')
-        plt.savefig(os.path.join(self.fig_out_path, 'classic_sample_profile_dists_and_seq_info.svg'), dpi=1200)
+        png_path = os.path.join(self.fig_out_path, 'classic_sample_profile_dists_and_seq_info.png')
+        print(f'saving .png: {png_path}')
+        plt.savefig(png_path, dpi=1200)
+        svg_path = os.path.join(self.fig_out_path, 'classic_sample_profile_dists_and_seq_info.svg')
+        print(f'saving .svg: {svg_path}')
+        plt.savefig(svg_path, dpi=1200)
 
     def _seq_and_type_plotting_site_ordered(self):
         sample_order = self._get_sample_order()
@@ -332,14 +336,14 @@ class SampleOrdinationFigure:
 
     def _get_sample_type_info(self, non_zero_sample_series, sample_total, sample_uid):
         current_sample_series = self.prof_rel_df.loc[sample_uid]
-        non_zero_indices = current_sample_series.nonzero()[0]
+        non_zero_indices = current_sample_series.to_numpy().nonzero()[0]
         non_zero_sample_series = current_sample_series.iloc[non_zero_indices]
         sample_total = non_zero_sample_series.sum()
         return non_zero_sample_series, sample_total
 
     def _get_sample_seq_info(self, sample_uid):
         current_sample_series = self.seq_rel_df.loc[sample_uid]
-        non_zero_indices = current_sample_series.nonzero()[0]
+        non_zero_indices = current_sample_series.to_numpy().nonzero()[0]
         non_zero_sample_series = current_sample_series.iloc[non_zero_indices]
         sample_total = non_zero_sample_series.sum()
         return non_zero_sample_series, sample_total
@@ -469,7 +473,7 @@ class SampleOrdinationFigure:
         return df.astype(dtype='float')
 
     def _make_sample_pcoa_df(self):
-        df = pd.read_csv(filepath_or_buffer=self.pcoa_samples_path, sep=',', header=0, index_col=1, skipfooter=1)
+        df = pd.read_csv(filepath_or_buffer=self.pcoa_samples_path, sep=',', header=0, index_col=1, skipfooter=1, engine='python')
         df.drop(columns='sample', inplace=True)
         df.index = df.index.astype('int')
         return df
@@ -490,7 +494,7 @@ class SampleOrdinationFigure:
         return df.astype(dtype='float')
 
     def _make_type_pcoa_df(self):
-        df = pd.read_csv(filepath_or_buffer=self.pcoa_types_path, sep=',', header=0, index_col=1, skipfooter=1)
+        df = pd.read_csv(filepath_or_buffer=self.pcoa_types_path, sep=',', header=0, index_col=1, skipfooter=1, engine='python')
         df.drop(columns='sample', inplace=True)
         df.index = df.index.astype('int')
         return df
