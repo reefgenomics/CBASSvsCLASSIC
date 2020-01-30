@@ -71,7 +71,7 @@ class SampleOrdinationFigure:
         self.type_pcoa_df = self._make_type_pcoa_df()
 
         # metainfo
-        self.meta_path = os.path.join(self.input_base_dir, 'meta_info.xlsx')
+        self.meta_path = os.path.join(self.input_base_dir, 'meta_info_LT_and_ST_only.xlsx')
         self.meta_df = self._make_meta_df()
 
         self.fig_out_path = os.path.join(self.root_dir, 'figures')
