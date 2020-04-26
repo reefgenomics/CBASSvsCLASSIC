@@ -41,4 +41,4 @@ between_sample_distances/
 
 #### The .xlsx that contains the meta information for the collected samples
 
-`meta_info.xlsx`
+`meta_info_LT_and_ST_only.xlsx`
