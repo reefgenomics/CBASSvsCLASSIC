@@ -12,10 +12,6 @@ import matplotlib.pyplot as plt
 # NB the pip cartopy install seems to be broken as it doesn't install the required libararies.
 # The solution was to install using conda. conda install cartopy.
 # I then had to downgrade shapely to 1.5.17. pip install shapely==1.5.17
-from cartopy.mpl.gridliner import Gridliner
-import matplotlib.ticker as mticker
-import cartopy.crs as ccrs
-import cartopy
 import matplotlib.gridspec as gridspec
 from matplotlib import collections, patches
 import sys
@@ -71,7 +67,7 @@ class SampleOrdinationFigure:
         self.type_pcoa_df = self._make_type_pcoa_df()
 
         # metainfo
-        self.meta_path = os.path.join(self.input_base_dir, 'meta_info_LT_and_ST_only.xlsx')
+        self.meta_path = os.path.join(self.input_base_dir, 'meta_info_LT_and_ST_only.csv')
         self.meta_df = self._make_meta_df()
 
         self.fig_out_path = os.path.join(self.root_dir, 'figures')
@@ -500,7 +496,7 @@ class SampleOrdinationFigure:
         return df
 
     def _make_meta_df(self):
-        df = pd.read_excel(self.meta_path, sheet_name=0, header=1, index_col=False, drop_row=0 )
+        df = pd.read_csv(self.meta_path, header=1, index_col=False, skiprows=0, sep=',')
         df.set_index('sample_name', drop=True, inplace=True)
         # make sure that each of the sample names in the distance file are found in the meta file
         sample_names_in_meta = df.index.values.tolist()
