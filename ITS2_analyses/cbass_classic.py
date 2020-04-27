@@ -267,7 +267,7 @@ class SampleOrdinationFigure:
 
     def _convert_sample_name_to_new_format(self, sample_name):
         # We need to extract the number and the temperature from the sample name
-        match_object = re.match(pattern=r'S(\d)_\w_\w{2}_{1,2}(\d\d)\w', string=sample_name)
+        match_object = re.match(pattern=r'S(\d)-\w-\w{2}-{1,2}(\d\d)\w', string=sample_name)
         if match_object:
             return f'Col{match_object.group(1)} {match_object.group(2)}'
         else:
