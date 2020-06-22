@@ -7,4 +7,4 @@ This repository contains the scripts used to run analyses and create figures for
 
 For more details on how to set up each of the scripts, please see the readme in the corresponding directory.
 
-The corresponding manuscript: "Standardized short‐term acute heat stress assays resolve historical differences in coral thermotolerance across microhabitat reef sites" can be access here: https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15148
+The corresponding manuscript: "Standardized short‐term acute heat stress assays resolve historical differences in coral thermotolerance across microhabitat reef sites" can be accessed here: https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.15148
