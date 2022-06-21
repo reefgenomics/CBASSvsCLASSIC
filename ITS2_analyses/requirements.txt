@@ -15,7 +15,7 @@ lxml==4.3.3
 matplotlib==3.0.3
 mkl-fft==1.0.12
 mkl-random==1.0.2
-numpy==1.16.3
+numpy==1.22.0
 olefile==0.46
 OWSLib==0.17.1
 pandas==0.24.2
