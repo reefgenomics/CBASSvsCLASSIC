@@ -19,7 +19,7 @@ numpy==1.16.3
 olefile==0.46
 OWSLib==0.17.1
 pandas==0.24.2
-Pillow==6.0.0
+Pillow==9.3.0
 pycparser==2.19
 pyepsg==0.4.0
 pygeoif==0.7
